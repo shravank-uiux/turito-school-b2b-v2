@@ -1,0 +1,69 @@
+/* Trust & Privacy — principles, role-based access, and where AI sits in the workflow. */
+.trust-page h2{font-size:41px;line-height:1.14;letter-spacing:-1.3px;font-weight:500}
+.trust-page h2 em,.tp-hero h1 em{font-family:Georgia,serif;font-style:normal;font-weight:400;color:#5b7a2f}
+.trust-page p{font-size:16px;line-height:1.7;color:#5f6b63}
+.trust-page .eyebrow{color:#7d8a78}
+
+.tp-hero{background:#f7f8ef;padding:28px 0 72px;overflow:hidden}
+.tp-breadcrumb{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:#77836f;margin-bottom:38px}
+.tp-breadcrumb:hover{color:var(--red)}
+.tp-hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:60px;align-items:center}
+.tp-hero h1{font-size:57px;line-height:1.08;letter-spacing:-2px;font-weight:500;margin:18px 0 20px}
+.tp-hero p{margin-bottom:32px;max-width:36em}
+.tp-hero-mark{display:grid;gap:22px;justify-items:start;padding:40px;background:#fff;border:1px solid #e3e7d8;border-radius:20px;box-shadow:0 20px 50px #2435280f}
+.tp-hero-mark svg{color:#5b7a2f}
+.tp-hero-mark span{font-size:22px;line-height:1.35;letter-spacing:-.6px}
+.tp-hero-mark em{font-family:Georgia,serif;font-style:normal;color:#5b7a2f}
+
+.tp-heading{display:grid;grid-template-columns:1fr .8fr;gap:50px;align-items:end;margin-bottom:46px}
+.tp-heading h2{margin-top:16px}
+
+.tp-principles{padding:86px 0}
+.tp-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.tp-grid article{position:relative;padding:34px;border:1px solid #e6e9dd;border-radius:18px;background:#fcfcf9}
+.tp-grid h3{font-size:19px;font-weight:600;letter-spacing:-.4px;margin:20px 0 11px}
+.tp-grid p{font-size:15px}
+.tp-number{position:absolute;top:34px;right:34px;font-size:13px;font-weight:700;color:#c3ccb8}
+.tp-icon{display:grid;place-items:center;width:47px;height:47px;border-radius:13px}
+.tp-icon.green{background:#e5eccc;color:#4e6b28}
+.tp-icon.purple{background:#eee1f4;color:#6f4f9a}
+.tp-icon.coral{background:#ffe8dc;color:#ad5633}
+.tp-icon.gold{background:#fff0be;color:#8d6a15}
+
+.tp-roles{padding:86px 0;background:#fcfbf8;border-top:1px solid #eceee4;border-bottom:1px solid #eceee4}
+.tp-role-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.tp-role-grid svg{color:#5b7a2f;margin-bottom:17px}
+.tp-role-grid h3{font-size:18px;font-weight:600;letter-spacing:-.3px;margin-bottom:10px}
+.tp-role-grid p{font-size:15px}
+
+.tp-ai{padding:86px 0}
+.tp-ai-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.tp-ai-grid img{border-radius:20px;width:100%;height:auto}
+.tp-ai-grid h2{margin:16px 0 18px}
+.tp-ai-grid ul{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:13px}
+.tp-ai-grid li{display:flex;align-items:flex-start;gap:12px;font-size:15px;color:#4c584f}
+.tp-ai-grid li svg{color:#5b7a2f;margin-top:3px}
+
+.tp-closing{padding:78px 0;background:#f7f8ef}
+.tp-closing .wrap{display:flex;align-items:center;justify-content:space-between;gap:50px}
+.tp-closing h2{margin:16px 0 14px}
+.tp-closing p{max-width:40em}
+
+@media(max-width:1000px){
+  .tp-hero h1{font-size:44px;letter-spacing:-1.5px}
+  .trust-page h2{font-size:33px;letter-spacing:-1px}
+  .tp-hero-grid,.tp-heading,.tp-ai-grid{grid-template-columns:1fr;gap:34px;align-items:start}
+  .tp-principles,.tp-roles,.tp-ai{padding:60px 0}
+  .tp-role-grid{gap:30px}
+}
+@media(max-width:760px){
+  .tp-hero{padding-bottom:50px}
+  .tp-breadcrumb{margin-bottom:26px}
+  .tp-hero h1{font-size:34px;letter-spacing:-1.2px}
+  .trust-page h2{font-size:27px}
+  .tp-hero-mark{padding:28px}
+  .tp-grid,.tp-role-grid{grid-template-columns:1fr}
+  .tp-grid article{padding:26px}
+  .tp-number{top:26px;right:26px}
+  .tp-closing .wrap{flex-direction:column;align-items:flex-start;gap:28px}
+}
