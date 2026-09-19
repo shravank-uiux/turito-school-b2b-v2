@@ -4,20 +4,20 @@ import { Header, Footer } from '@/components/marketing';
 import './trust-privacy.css';
 
 const principles = [
-  { icon: UserCheck, tone: 'green', title: 'Teachers review what AI produces',
-    body: 'AI helps prepare materials, questions, and marking. A teacher reviews, edits, and decides what reaches the classroom. Nothing is published to students automatically.' },
-  { icon: School, tone: 'purple', title: 'Schools stay in control of their data',
-    body: 'Your school decides which solutions are used, who has access, and what is shared between them. Student work and results belong to the school, not to us.' },
-  { icon: Eye, tone: 'coral', title: 'Insights are for supporting learning',
-    body: 'Engagement and performance reporting exists to help educators find where students need support. It is not used to advertise to students or families.' },
-  { icon: SlidersHorizontal, tone: 'gold', title: 'Start small, expand deliberately',
-    body: 'Schools can begin with one solution and add others later. Access and visibility are set up to match how your school is actually organised.' },
+  { icon: UserCheck, tone: 'green', title: 'Your teachers review what the AI produces',
+    body: 'AI prepares materials, questions, and marking. One of your teachers reviews it, edits it, and decides what reaches the classroom. Nothing reaches your students automatically.' },
+  { icon: School, tone: 'purple', title: 'You stay in control of your data',
+    body: 'You decide which solutions are used, who has access, and what is shared between them. Your students’ work and results belong to your school, not to us.' },
+  { icon: Eye, tone: 'coral', title: 'Reporting is for helping students',
+    body: 'Reporting exists so your educators can find the students who need help. We do not use it to advertise to your students or their families.' },
+  { icon: SlidersHorizontal, tone: 'gold', title: 'Start small, expand when you want to',
+    body: 'You can begin with one solution and add others later. Access and visibility are set up to match how your school is actually organised, not how we assume it is.' },
 ];
 
 const roles = [
-  { icon: PencilRuler, label: 'Teachers', body: 'See the classes they teach. They review AI-assisted materials and evaluations before students see results.' },
-  { icon: GraduationCap, label: 'Students', body: 'See their own resources, practice, and progress — the material their school has made available to them.' },
-  { icon: Lock, label: 'School & county leaders', body: 'See engagement and performance for the schools and classrooms in their remit, at the level of detail their role requires.' },
+  { icon: PencilRuler, label: 'Teachers', body: 'Your teachers see the classes they teach, and review AI-assisted materials and marking before any student sees a result.' },
+  { icon: GraduationCap, label: 'Students', body: 'Your students see their own resources, practice, and progress — only what you have made available to them.' },
+  { icon: Lock, label: 'School & county leaders', body: 'You see engagement and performance for the schools and classrooms in your remit, at the level of detail your role requires.' },
 ];
 
 export default function Page() {
@@ -30,8 +30,8 @@ export default function Page() {
           <div className="tp-hero-grid">
             <div>
               <div className="eyebrow">TRUST &amp; PRIVACY</div>
-              <h1>Built for classrooms.<br /><em>Answerable to schools.</em></h1>
-              <p>TuritoSchools sits close to teaching and learning, so how it handles student work matters as much as what it can do. These are the principles the product is built around.</p>
+              <h1>Built for your classrooms.<br /><em>Answerable to you.</em></h1>
+              <p>This product sits very close to your students’ work, so how it handles that work matters as much as what it can do. Here is what you are agreeing to.</p>
               <a className="button" href="/request-demo?interest=trust-privacy">Talk through the details <ArrowUpRight size={18} /></a>
             </div>
             <div className="tp-hero-mark">
@@ -49,7 +49,7 @@ export default function Page() {
               <div className="eyebrow">HOW WE APPROACH IT</div>
               <h2>Four commitments<br /><em>behind the product.</em></h2>
             </div>
-            <p>Each one shows up in how the solutions actually behave — not only in policy.</p>
+            <p>You can see each one in how the product behaves, not just in a policy document.</p>
           </div>
           <div className="tp-grid">
             {principles.map((p, i) => <article key={p.title}>
@@ -67,9 +67,9 @@ export default function Page() {
           <div className="tp-heading">
             <div>
               <div className="eyebrow">ACCESS BY ROLE</div>
-              <h2>People see what<br /><em>their role requires.</em></h2>
+              <h2>You decide<br /><em>who sees what.</em></h2>
             </div>
-            <p>Access follows the structure of the school, so information reaches the people responsible for acting on it.</p>
+            <p>Access follows the structure of your school, so information reaches the people responsible for acting on it and stops there.</p>
           </div>
           <div className="tp-role-grid">
             {roles.map(r => <article key={r.label}>
@@ -86,12 +86,12 @@ export default function Page() {
           <img src="/learning-together.png" width={1536} height={1024} alt="A teacher working through a problem with two students" loading="lazy" />
           <div>
             <div className="eyebrow">WHERE AI FITS</div>
-            <h2>AI prepares the draft.<br /><em>Educators make the call.</em></h2>
-            <p>Across Teacher Tools, Academics, and reporting, AI is a starting point: a generated worksheet, a suggested question set, an assisted mark, a summary of a class. In every case an educator can open what sits underneath it, change it, or set it aside.</p>
+            <h2>AI prepares the draft.<br /><em>Your educators make the call.</em></h2>
+            <p>Across Teacher Tools, Academics, and reporting, AI only ever gives you a starting point: a generated worksheet, a suggested question set, an assisted mark, a summary of a class. In every one of those cases your educators can open what sits underneath it, change it, or throw it away.</p>
             <ul>
-              <li><Check size={17} /> Generated materials can be edited before use.</li>
-              <li><Check size={17} /> Answer keys and evaluations are reviewable.</li>
-              <li><Check size={17} /> Summaries link back to the underlying results.</li>
+              <li><Check size={17} /> Your teachers can edit any generated material before it is used.</li>
+              <li><Check size={17} /> Every answer key and every mark is open for them to review.</li>
+              <li><Check size={17} /> Every summary links back to the results it came from.</li>
             </ul>
           </div>
         </div>
@@ -102,7 +102,7 @@ export default function Page() {
           <div>
             <div className="eyebrow">YOUR SCHOOL&rsquo;S REQUIREMENTS</div>
             <h2>Bring your questions.</h2>
-            <p>Every district has its own requirements around student data, access, and review. Bring yours and we&rsquo;ll walk through how TuritoSchools would be set up for your school.</p>
+            <p>Your district will have its own requirements around student data, access, and review. Bring them and we&rsquo;ll walk through exactly how this would be set up for your school.</p>
           </div>
           <a className="button" href="/request-demo?interest=trust-privacy">Request a demo <ArrowUpRight size={18} /></a>
         </div>

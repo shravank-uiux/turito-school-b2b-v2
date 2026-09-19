@@ -1,0 +1,25 @@
+.rotator {
+  display: inline-grid;
+}
+
+.word {
+  grid-area: 1 / 1;
+  justify-self: start;
+  font: inherit;
+  color: inherit;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(0.16em);
+  transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.word[data-active] {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .word {
+    transition: none;
+  }
+}

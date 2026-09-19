@@ -10,12 +10,12 @@ import './for-students.css';
 
 const tracks = [
   { id: 'academics', icon: BookOpen, tone: 'green', label: 'Academics',
-    title: 'Support subject learning\nevery school day.',
-    body: 'Study resources, guided explanations, AI study tools, and practice students can use for classwork, homework, and revision.',
+    title: 'Help with today\u2019s homework,\nnot just this term\u2019s syllabus.',
+    body: 'Resources, guided explanations, AI study tools, and practice your students can reach for during classwork, homework, and revision.',
     jump: [['Subject resources', '#academic-resources'], ['Virtual AI Tutor', '#academic-tutor'], ['AI study tools', '#academic-practice'], ['Learning outcomes', '#academic-progress']] },
   { id: 'college-readiness', icon: GraduationCap, tone: 'gold', label: 'College Readiness',
-    title: 'Prepare for what\ncomes after school.',
-    body: 'SAT and ACT preparation, student profiles, college recommendations, and Virtual Counselor guidance, brought into one readiness program.',
+    title: 'Give every student\na path after school.',
+    body: 'SAT and ACT preparation, a student profile, college recommendations, and Virtual Counselor guidance \u2014 one readiness program instead of four disconnected ones.',
     jump: [['SAT & ACT preparation', '#readiness-tests'], ['Student profiles', '#readiness-profile'], ['College discovery', '#readiness-colleges'], ['Virtual Counselor', '#readiness-counselor']] },
 ];
 
@@ -44,8 +44,8 @@ export default function Page() {
           <div className="ac-hero-grid">
             <div>
               <div className="eyebrow">FOR STUDENTS</div>
-              <h1>Learning support today.<br /><span>A clearer path ahead.</span></h1>
-              <p>Give students the resources and guided practice they need across every subject, and the preparation and guidance they need for college.</p>
+              <h1>Somewhere to turn<br /><span>when class ends.</span></h1>
+              <p>Your students get help with every subject while the term runs, and a clear path to college when it matters. Both in the same place, and both there when your teachers are not.</p>
               <a className="button" href="/request-demo?interest=academics,college-readiness">Explore the student experience <ArrowUpRight size={18} /></a>
               <div className="st-hero-tracks">
                 {tracks.map(t => <a href={`#${t.id}`} key={t.id} className={`st-${t.tone}`}><t.icon size={19} /><b>{t.label}</b><ArrowRight size={16} /></a>)}
