@@ -12,3 +12,20 @@
 .academics-page .ac-school-start .ac-rollout{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px!important;margin-top:28px!important}.academics-page .ac-school-start .ac-rollout>div{padding:23px!important;border:1px solid #e2e6d9!important;background:#fff!important;border-radius:14px;box-shadow:0 5px 15px #35442c06!important}.academics-page .ac-school-start .ac-rollout>div>span{display:grid;place-items:center;width:36px;height:36px;border-radius:10px;background:#eaf1df;color:#718651;font-size:13px}.academics-page .ac-school-start .ac-rollout>div:nth-child(2)>span{background:#faeadc;color:#a57953}.academics-page .ac-school-start .ac-rollout>div:nth-child(3)>span{background:#eee7f5;color:#886d9c}.academics-page .ac-school-start .ac-rollout h3{font-size:19px;font-weight:500;line-height:1.35;color:#35422f;margin:16px 0 10px}.academics-page .ac-school-start .ac-rollout p{font-size:15px;line-height:1.6;color:#66725c}.academics-page .ac-school-start-head>p{color:#68745d}.academics-page .ac-final{margin-top:28px}@media(max-width:760px){.academics-page .ac-school-start .ac-rollout{grid-template-columns:1fr;gap:13px!important}.academics-page .ac-school-start .ac-rollout>div{padding:20px!important}.academics-page .ac-school-start .ac-rollout h3{margin-top:13px}}
 
 .academics-page .ac-format-tabs{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr));width:100%!important}.academics-page .ac-format-tabs button{padding:8px 4px!important;font-size:13px!important;gap:5px}.ac-podcast-player{display:flex;align-items:center;gap:14px;padding:15px;background:#f1ebf7;border-radius:10px;color:#806393}.ac-podcast-player strong{display:block;font-weight:500;font-size:16px;color:#584466}.ac-podcast-player span{display:block;font-size:13px;margin-top:5px}.ac-podcast-wave{display:flex;height:60px;align-items:center;justify-content:center;gap:5px;margin:14px 0}.ac-podcast-wave i{width:5px;background:#ac8cc4;border-radius:4px;animation:podcast-wave .7s ease-in-out infinite alternate}.ac-podcast-caption{font-size:15px;line-height:1.6;color:#665374}@keyframes podcast-wave{to{transform:scaleY(.45)}}@media(prefers-reduced-motion:reduce){.ac-podcast-wave i{animation:none}}
+/* Related solution: College Readiness, mirroring the block College Readiness
+   uses to point back here. */
+.ac-related{padding:65px 0;background:#f3f7ec}
+.ac-related-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:center}
+.ac-related .eyebrow{font-size:11px;color:#6f8a5f}
+.ac-related h2{font-size:39px;letter-spacing:-1.3px;font-weight:500;line-height:1.2;margin:21px 0;color:#4a6340}
+.ac-related h2 em{font-family:Georgia,serif;font-weight:400;color:#6f8a5f}
+.ac-related p{font-size:16px;color:#68785e;line-height:1.75}
+.ac-related .text-link{margin-top:23px;color:#4f6b45}
+.ac-related-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ac-related-list li{display:flex;gap:12px;align-items:flex-start;padding:16px 16px;background:#fff;border:1px solid #dfe7d6;border-radius:12px}
+.ac-related-list svg{color:#6f8a5f;flex-shrink:0;margin-top:2px}
+.ac-related-list b{display:block;font-size:15px;font-weight:500;color:#3f513a}
+.ac-related-list span{display:block;font-size:13px;line-height:1.6;color:#79876f;margin-top:5px}
+@media(max-width:1000px){.ac-related-grid{grid-template-columns:1fr;gap:34px}}
+@media(max-width:760px){.ac-related{padding:45px 0}.ac-related h2{font-size:35px}}
+@media(max-width:520px){.ac-related-list{grid-template-columns:1fr}}

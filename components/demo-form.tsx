@@ -1,15 +1,235 @@
-'use client';
-import { useEffect, useState } from 'react';
-import { ArrowLeft, ArrowUpRight, Check, CheckCircle2, MessageCircle } from 'lucide-react';
+"use client";
+import { useEffect, useState } from "react";
+import { ArrowLeft, ArrowUpRight, Check, CheckCircle2, MessageCircle } from "lucide-react";
 
-import { Checkbox } from '@/components/ui/checkbox';
-import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from '@/components/ui/select';
-import { solutions } from './marketing';
-const roles=['School leader','Teacher / department lead','Curriculum / instructional leader','School counselor','District / technology team','Other'];
-export function DemoForm(){
- const [interests,setInterests]=useState<string[]>([]);const [role,setRole]=useState<string|null>(null);const [error,setError]=useState('');const [review,setReview]=useState(false);const [name,setName]=useState('');
- useEffect(()=>{const raw=new URLSearchParams(window.location.search).get('interest')||'';setInterests(raw.split(',').filter(x=>solutions.some(s=>s.id===x)));},[]);
- useEffect(()=>{type Context={registerTool:(tool:{name:string;description:string;inputSchema:object;annotations:object;execute:(input:unknown)=>Promise<unknown>},options:{signal:AbortSignal})=>void|Promise<void>};const context=(document as Document&{modelContext?:Context}).modelContext;if(!context?.registerTool)return;const lifecycle=new AbortController();try{Promise.resolve(context.registerTool({name:'stage_demo_interests',description:'Select solution interests in this preview demo form. Does not submit or send a request.',inputSchema:{type:'object',properties:{interests:{type:'array',items:{type:'string',enum:[...solutions.map(s=>s.id),'help-me-decide']}}},required:['interests'],additionalProperties:false},annotations:{readOnlyHint:false,untrustedContentHint:false},async execute(input:unknown){const data=input as {interests?:unknown};if(!data||!Array.isArray(data.interests)||data.interests.some(x=>typeof x!=='string'||![...solutions.map(s=>s.id),'help-me-decide'].includes(x)))throw new Error('Choose valid solution identifiers.');const next=[...new Set(data.interests as string[])];setInterests(next);await new Promise<void>(resolve=>requestAnimationFrame(()=>resolve()));return{status:'staged',interests:next,submitted:false};}},{signal:lifecycle.signal})).catch(()=>{});}catch{}return()=>lifecycle.abort();},[]);
- function submit(e:React.FormEvent<HTMLFormElement>){e.preventDefault();if(!role){setError('Please choose your role.');return;}if(!interests.length){setError('Choose a solution or “Help us decide.”');return;}setError('');setReview(true);}
- return <div className="demo-form-card">{review?<div className="demo-review" role="status"><CheckCircle2 size={43}/><span className="eyebrow teal">Preview complete</span><h2>That's a helpful<br/>starting point, {name.split(' ')[0]}.</h2><p>Your interests are ready to review. This is a preview of the demo-request experience; nothing has been sent.</p><div className="review-interests">{interests.map(id=><span key={id}><Check size={14}/>{solutions.find(s=>s.id===id)?.name||'Help us decide'}</span>)}</div><button className="button light" onClick={()=>setReview(false)}><ArrowLeft size={16}/> Back to your details</button></div>:null}<form onSubmit={submit} hidden={review}><div className="form-heading"><h2>A little about your school.</h2><p>Fields marked * are required.</p></div><div className="form-grid"><label>Full name *<input required autoComplete="name" name="name" value={name} onChange={e=>setName(e.target.value)} placeholder="Your name" maxLength={120}/></label><label>Work email *<input required type="email" autoComplete="email" name="email" placeholder="you@school.edu" maxLength={180}/></label><label className="wide">School or district name *<input required autoComplete="organization" name="school" placeholder="School or district name" maxLength={180}/></label><div className="wide"><label id="role-label">Your role *</label><Select value={role} onValueChange={v=>setRole(v)}><SelectTrigger className="role-select" aria-labelledby="role-label"><SelectValue placeholder="Select your role"/></SelectTrigger><SelectContent>{roles.map(r=><SelectItem key={r} value={r}>{r}</SelectItem>)}</SelectContent></Select></div></div><fieldset className="form-interests"><legend>What would you like to explore? *</legend><p>Select all that interest you.</p>{[...solutions.map(s=>({id:s.id,name:s.name})),{id:'help-me-decide',name:'Help us decide'}].map(s=><label key={s.id}><Checkbox checked={interests.includes(s.id)} onCheckedChange={v=>setInterests(p=>v?[...p,s.id]:p.filter(x=>x!==s.id))}/><span>{s.name}</span></label>)}</fieldset><label className="notes-label">Anything you'd like us to know? <span>(optional)</span><textarea name="notes" rows={3} maxLength={2000} placeholder="Your priorities, grade levels, or questions…"/></label><div className="form-preview-note"><MessageCircle size={17}/><p><b>Design preview.</b> Explore this form with sample details. Requests are not sent or stored.</p></div>{error&&<p className="form-error" role="alert">{error}</p>}<button className="button form-submit" type="submit">Preview demo request <ArrowUpRight size={18}/></button></form></div>
+import { Checkbox } from "@/components/ui/checkbox";
+import {
+  Select,
+  SelectTrigger,
+  SelectValue,
+  SelectContent,
+  SelectItem,
+} from "@/components/ui/select";
+import { solutions } from "./marketing";
+const roles = [
+  "Principal / school leader",
+  "Teacher / department chair",
+  "Curriculum / instructional leader",
+  "School counselor",
+  "District leader / technology team",
+  "Other",
+];
+export function DemoForm() {
+  const [interests, setInterests] = useState<string[]>([]);
+  const [role, setRole] = useState<string | null>(null);
+  const [error, setError] = useState("");
+  const [review, setReview] = useState(false);
+  const [name, setName] = useState("");
+  useEffect(() => {
+    const raw = new URLSearchParams(window.location.search).get("interest") || "";
+    setInterests(raw.split(",").filter((x) => solutions.some((s) => s.id === x)));
+  }, []);
+  useEffect(() => {
+    type Context = {
+      registerTool: (
+        tool: {
+          name: string;
+          description: string;
+          inputSchema: object;
+          annotations: object;
+          execute: (input: unknown) => Promise<unknown>;
+        },
+        options: { signal: AbortSignal },
+      ) => void | Promise<void>;
+    };
+    const context = (document as Document & { modelContext?: Context }).modelContext;
+    if (!context?.registerTool) return;
+    const lifecycle = new AbortController();
+    try {
+      Promise.resolve(
+        context.registerTool(
+          {
+            name: "stage_demo_interests",
+            description:
+              "Select solution interests in this preview demo form. Does not submit or send a request.",
+            inputSchema: {
+              type: "object",
+              properties: {
+                interests: {
+                  type: "array",
+                  items: {
+                    type: "string",
+                    enum: [...solutions.map((s) => s.id), "help-me-decide"],
+                  },
+                },
+              },
+              required: ["interests"],
+              additionalProperties: false,
+            },
+            annotations: { readOnlyHint: false, untrustedContentHint: false },
+            async execute(input: unknown) {
+              const data = input as { interests?: unknown };
+              if (
+                !data ||
+                !Array.isArray(data.interests) ||
+                data.interests.some(
+                  (x) =>
+                    typeof x !== "string" ||
+                    ![...solutions.map((s) => s.id), "help-me-decide"].includes(x),
+                )
+              )
+                throw new Error("Choose valid solution identifiers.");
+              const next = [...new Set(data.interests as string[])];
+              setInterests(next);
+              await new Promise<void>((resolve) => requestAnimationFrame(() => resolve()));
+              return { status: "staged", interests: next, submitted: false };
+            },
+          },
+          { signal: lifecycle.signal },
+        ),
+      ).catch(() => {});
+    } catch {}
+    return () => lifecycle.abort();
+  }, []);
+  function submit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    if (!role) {
+      setError("Please choose your role.");
+      return;
+    }
+    if (!interests.length) {
+      setError("Choose a solution or “Help us decide.”");
+      return;
+    }
+    setError("");
+    setReview(true);
+  }
+  return (
+    <div className="demo-form-card">
+      {review ? (
+        <div className="demo-review" role="status">
+          <CheckCircle2 size={43} />
+          <span className="eyebrow teal">Preview complete</span>
+          <h2>
+            That's a helpful
+            <br />
+            starting point, {name.split(" ")[0]}.
+          </h2>
+          <p>
+            Your interests are ready to review. This is a preview of the demo-request experience;
+            nothing has been sent.
+          </p>
+          <div className="review-interests">
+            {interests.map((id) => (
+              <span key={id}>
+                <Check size={14} />
+                {solutions.find((s) => s.id === id)?.name || "Help us decide"}
+              </span>
+            ))}
+          </div>
+          <button className="button light" onClick={() => setReview(false)}>
+            <ArrowLeft size={16} /> Back to your details
+          </button>
+        </div>
+      ) : null}
+      <form onSubmit={submit} hidden={review}>
+        <div className="form-heading">
+          <h2>A little about your school.</h2>
+          <p>Fields marked * are required.</p>
+        </div>
+        <div className="form-grid">
+          <label>
+            Full name *
+            <input
+              required
+              autoComplete="name"
+              name="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Your name"
+              maxLength={120}
+            />
+          </label>
+          <label>
+            Work email *
+            <input
+              required
+              type="email"
+              autoComplete="email"
+              name="email"
+              placeholder="you@school.edu"
+              maxLength={180}
+            />
+          </label>
+          <label className="wide">
+            School or district name *
+            <input
+              required
+              autoComplete="organization"
+              name="school"
+              placeholder="School or district name"
+              maxLength={180}
+            />
+          </label>
+          <div className="wide">
+            <label id="role-label">Your role *</label>
+            <Select value={role} onValueChange={(v) => setRole(v)}>
+              <SelectTrigger className="role-select" aria-labelledby="role-label">
+                <SelectValue placeholder="Select your role" />
+              </SelectTrigger>
+              <SelectContent>
+                {roles.map((r) => (
+                  <SelectItem key={r} value={r}>
+                    {r}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+        </div>
+        <fieldset className="form-interests">
+          <legend>What would you like to explore? *</legend>
+          <p>Select all that interest you.</p>
+          {[
+            ...solutions.map((s) => ({ id: s.id, name: s.name })),
+            { id: "help-me-decide", name: "Help us decide" },
+          ].map((s) => (
+            <label key={s.id}>
+              <Checkbox
+                checked={interests.includes(s.id)}
+                onCheckedChange={(v) =>
+                  setInterests((p) => (v ? [...p, s.id] : p.filter((x) => x !== s.id)))
+                }
+              />
+              <span>{s.name}</span>
+            </label>
+          ))}
+        </fieldset>
+        <label className="notes-label">
+          Anything you'd like us to know? <span>(optional)</span>
+          <textarea
+            name="notes"
+            rows={3}
+            maxLength={2000}
+            placeholder="Your priorities, grade levels, or questions…"
+          />
+        </label>
+        <div className="form-preview-note">
+          <MessageCircle size={17} />
+          <p>
+            <b>Design preview.</b> Explore this form with sample details. Requests are not sent or
+            stored.
+          </p>
+        </div>
+        {error && (
+          <p className="form-error" role="alert">
+            {error}
+          </p>
+        )}
+        <button className="button form-submit" type="submit">
+          Preview demo request <ArrowUpRight size={18} />
+        </button>
+      </form>
+    </div>
+  );
 }

@@ -3,7 +3,7 @@ import {useEffect,useRef} from 'react';
 import {BookOpen,CalendarDays,ChartNoAxesCombined,Compass,FileCheck2,Sparkles} from 'lucide-react';
 const content={
  'teacher-tools':{image:'/teacher-tools-hero.png',alt:'A teacher preparing lessons with a laptop, planner and worksheets at her classroom desk',first:'Academic planning',second:'AI teaching tools',First:CalendarDays,Second:Sparkles},
- academics:{image:'/academics-hero.png',alt:'A student studying with a laptop, textbook and notebook in a school library',first:'Subject-wise resources',second:'Virtual AI Tutor',First:BookOpen,Second:Sparkles},
+ academics:{image:'/academics-hero.png',alt:'A student studying with a laptop, textbook and notebook in a school library',first:'Resources by subject',second:'Virtual AI Tutor',First:BookOpen,Second:Sparkles},
  'college-readiness':{image:'/college-hero.png',alt:'Students exploring college options with a school counselor',first:'SAT & ACT preparation',second:'College guidance',First:FileCheck2,Second:Compass},
  'school-performance':{image:'/performance-hero.png',alt:'School leaders and teachers reviewing learning reports together',first:'Subject-level performance',second:'AI performance summaries',First:ChartNoAxesCombined,Second:Sparkles},
 };

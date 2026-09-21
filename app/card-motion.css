@@ -1,0 +1,56 @@
+/* Shared card motion.
+   The resting state is only applied once CardMotion has tagged an element, so
+   with JavaScript off or failed every card renders normally. */
+
+[data-card-motion] {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--card-delay, 0ms);
+}
+
+/* :not(:hover):not(:focus-within) keeps this resting rule from competing with
+   hover lifts defined elsewhere (for example .eh-path-card:hover), which carry
+   the same specificity and would otherwise be decided by stylesheet order. */
+[data-card-motion][data-revealed] {
+  opacity: 1;
+}
+
+[data-card-motion][data-revealed]:not(:hover):not(:focus-within) {
+  transform: none;
+}
+
+/* Cards you can act on also lift, matching .eh-path-card's existing treatment. */
+[data-card-motion][data-card-interactive] {
+  transition:
+    opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.45s ease;
+}
+
+[data-card-motion][data-card-interactive][data-revealed]:hover,
+[data-card-motion][data-card-interactive][data-revealed]:focus-within {
+  transform: translateY(-6px);
+  box-shadow:
+    0 4px 10px #17231f14,
+    0 22px 46px #17231f1f;
+  transition-delay: 0ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-card-motion],
+  [data-card-motion][data-revealed],
+  [data-card-motion][data-revealed]:not(:hover):not(:focus-within) {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  [data-card-motion][data-card-interactive][data-revealed]:hover,
+  [data-card-motion][data-card-interactive][data-revealed]:focus-within {
+    transform: none;
+    box-shadow: none;
+  }
+}

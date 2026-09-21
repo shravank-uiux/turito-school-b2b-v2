@@ -3,4 +3,4 @@ import {SchoolPerformancePage} from '@/components/school-performance-page';
 import './school-performance.css';
 export default function Page(){return <SchoolPerformancePage/>}
 
-export const metadata = pageMetadata("For Schools — School Performance & Learning Insights", "Track engagement and subject-level performance across counties, schools, classrooms, and students, with AI summaries to help leadership teams focus support.", "/performance-hero.png");
+export const metadata = pageMetadata("School & District Insights — Engagement & Learning Performance", "Review engagement and subject-level performance across districts, schools, classrooms, and students, with AI summaries that support educator review.", "/performance-hero.png");

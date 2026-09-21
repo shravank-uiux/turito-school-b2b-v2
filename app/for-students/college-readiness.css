@@ -16,3 +16,15 @@
 
 /* Match homepage product-text readability. */
 .college-page .cr-product-top>span{color:#6c735e;font-size:13px}.college-page .cr-profile-fields>span{font-size:15px!important;color:#5d674f}.college-page .cr-tabs button,.college-page .cr-prep-tabs [data-slot=tabs-trigger]{font-size:14px;color:#6c593c}.college-page .cr-tab-panel h4{font-size:18px;color:#665132}.college-page .cr-tab-panel>p,.college-page .cr-muted{font-size:14px!important;color:#71654f;line-height:1.55!important}.college-page .cr-interest b,.college-page .cr-prep-path b,.college-page .cr-compare-row b{font-size:16px;color:#59634d}.college-page .cr-interest p,.college-page .cr-prep-path span,.college-page .cr-compare-row p{font-size:14px;color:#6a725f;line-height:1.5}.college-page .cr-compare-row{padding:12px 10px!important}.college-page .cr-compare-row>div{flex:1;min-width:0}.college-page .cr-compare-row>svg:last-child{margin-right:3px;color:#727e64}.college-page .cr-topic h5{font-size:16px;color:#64563e}.college-page .cr-topic p{font-size:14px!important;color:#75664d}.college-page .cr-plan-heading p{font-size:14px;color:#74634c}.college-page .cr-plan-heading>span{font-size:13px;color:#70553b}.college-page .cr-guidance-student,.college-page .cr-guidance-response p{font-size:15px!important;color:#536646}.college-page .cr-counselor>p{font-size:14px!important;color:#637653}.college-page .cr-kicker,.college-page .cr-profile-title small{font-size:12px;color:#7d6a44}.college-page .cr-college-actions{font-size:14px;color:#745687}
+/* Academic Support study tools, as an auto-advancing tab set. */
+.cr-tools-tabs .crt-list{display:grid!important;grid-template-columns:1fr 1fr;gap:9px;width:100%!important;height:auto!important;padding:0!important;background:none!important;border:0!important}
+.cr-tools-tabs .crt-trigger{position:relative;overflow:hidden;display:flex!important;align-items:center;justify-content:flex-start!important;gap:9px;text-align:left;padding:12px 13px!important;border:1px solid #ddcde6!important;border-radius:11px;background:#fffafc!important;font-size:14px;font-weight:500;color:#7b6589;transition:border-color .3s ease,background .3s ease,color .3s ease}
+.cr-tools-tabs .crt-trigger svg{color:#a78cb9;flex-shrink:0}
+.cr-tools-tabs .crt-trigger[data-active]{border-color:#c3a9d4!important;background:#f7eefc!important;color:#5f4a6d}
+.cr-tools-tabs [role=tab][data-active]:before{background:#a78cb9!important}
+.cr-tools-tabs .crt-panel{display:flex;gap:14px;align-items:flex-start;margin-top:16px;padding:18px 18px;background:#fffafc;border:1px solid #eadff1;border-radius:12px}
+.cr-tools-tabs .crt-panel-icon{display:flex;color:#a78cb9;flex-shrink:0}
+.cr-tools-tabs .crt-panel h3{margin:0 0 6px;font-size:17px;font-weight:500;color:#5f4a6d}
+.cr-tools-tabs .crt-panel p{margin:0;font-size:14px;line-height:1.65;color:#8d7d96}
+@media(max-width:520px){.cr-tools-tabs .crt-list{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.cr-tools-tabs .crt-trigger{transition:none}}

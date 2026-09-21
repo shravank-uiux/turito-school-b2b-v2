@@ -1,0 +1,147 @@
+.bar {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  z-index: 60;
+  max-width: min(520px, calc(100vw - 40px));
+  padding: 12px;
+  border: 1px solid #cfd6d2;
+  border-radius: 12px;
+  background: #fffdf7;
+  box-shadow: 0 10px 30px rgb(20 30 20 / 18%);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  color: #2a332a;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.switch,
+.listButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 12px;
+  border: 1px solid #cfd6d2;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  color: inherit;
+}
+
+.switch[data-on='true'] {
+  border-color: #3f6b3f;
+  background: #eef5ea;
+}
+
+.track {
+  width: 32px;
+  height: 18px;
+  border-radius: 999px;
+  background: #cfd6d2;
+  position: relative;
+  transition: background 0.18s;
+}
+
+.switch[data-on='true'] .track {
+  background: #3f6b3f;
+}
+
+.knob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  transition: transform 0.18s;
+}
+
+.switch[data-on='true'] .knob {
+  transform: translateX(14px);
+}
+
+.status {
+  margin: 10px 2px 0;
+  font-size: 12px;
+  color: #596451;
+}
+
+/* Inline marks, used both in the page and in the list. */
+.before {
+  text-decoration: line-through;
+  text-decoration-color: #bd2038;
+  background: #fbe9ec;
+  color: #7d2130;
+  padding: 0 3px;
+  border-radius: 3px;
+}
+
+.after {
+  text-decoration: none;
+  background: #e8f3e2;
+  color: #24521f;
+  padding: 0 3px;
+  border-radius: 3px;
+}
+
+.pair {
+  display: inline;
+}
+
+/* Keep the two versions readable when they sit next to each other in the page. */
+.pair .before {
+  margin-right: 4px;
+}
+
+.list {
+  margin: 12px 0 0;
+  padding: 0 0 0 20px;
+  max-height: min(46vh, 420px);
+  overflow-y: auto;
+  display: grid;
+  gap: 14px;
+}
+
+.row {
+  display: grid;
+  gap: 4px;
+  line-height: 1.45;
+}
+
+.kind {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+  color: #596451;
+}
+
+.reason {
+  margin: 2px 0 0;
+  font-size: 12px;
+  color: #596451;
+}
+
+@media (max-width: 560px) {
+  .bar {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    max-width: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track,
+  .knob {
+    transition: none;
+  }
+}

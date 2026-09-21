@@ -7,7 +7,7 @@ export default function Page() {
 }
 
 export const metadata = pageMetadata(
-  "One Intelligent Learning Ecosystem, Built for Schools, Teachers, and Students.",
+  "One intelligent learning ecosystem. Built for schools, teachers, and students.",
   "Help teachers prepare lessons, give students guided practice, and see where extra support is needed. AI support for your whole school, from TuritoSchools.",
   "/learning-together.png",
 );
