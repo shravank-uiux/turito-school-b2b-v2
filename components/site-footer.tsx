@@ -13,7 +13,7 @@ export function SiteFooter() {
         <div className={styles.grid}>
           <div className={styles.brand}>
             <a href="/" aria-label="Turito Schools home">
-              <img src="/turito-logo.svg" alt="Turito" width={124} height={42} />
+              <img src="/turito-logo-black.svg" alt="Turito Schools" width={124} height={48} />
             </a>
             <p>One intelligent learning ecosystem.</p>
             <span>Built for schools, teachers, and students.</span>

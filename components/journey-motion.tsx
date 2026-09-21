@@ -628,7 +628,7 @@ function TeacherPhotoStory({ index }: { index: number }) {
       <div className="focused-asset-bottom">
         <span>
           <Check size={13} />
-          Illustrative example
+          {c.status}
         </span>
         <span>
           {index === 0
@@ -652,7 +652,7 @@ export function TeacherSolutionSections() {
         <h2>
           Follow one unit
           <br />
-          <span className="serif">from planning to reviewed results.</span>
+          <span className="serif">from planning to the assessment.</span>
         </h2>
         <p>
           Explore the four steps below, from planning a unit to running the assessment. Use the

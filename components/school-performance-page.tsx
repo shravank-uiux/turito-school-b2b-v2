@@ -165,7 +165,7 @@ export function SchoolPerformancePage() {
                   <img src="/turito-logo.svg" alt="Turito" width={80} height={24} />
                   <span>Schools</span>
                 </div>
-                <span>Illustrative example · Grade 8 Mathematics</span>
+                <span>Grade 8 Mathematics</span>
               </div>
               <div className="sp-focused-body">
                 <div>
